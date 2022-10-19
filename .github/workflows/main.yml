@@ -5,14 +5,6 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
-      - name: Prepare Environment
-        run: |
-          export PATH="/usr/share/miniconda/bin:$PATH"
-          sudo rm -rf /usr/bin/conda
-          conda create -n chineseocr python=3.6 pip scipy numpy
-          source activate chineseocr
-          python -m pip install -U wheel
-          echo !!Ready!!
       - uses: actions/checkout@v2
       - name: Setup Debug Session
         uses: csexton/debugger-action@master
