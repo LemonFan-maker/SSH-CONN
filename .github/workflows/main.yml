@@ -9,7 +9,7 @@ jobs:
         run: |
           export PATH="/usr/share/miniconda/bin:$PATH"
           sudo rm -rf /usr/bin/conda
-          conda create -n chineseocr python=3.6 pip scipy numpy jupyter ipython
+          conda create -n chineseocr python=3.6 pip scipy numpy
           source activate chineseocr
           python -m pip install -U wheel
           pip install -r requirements.txt
