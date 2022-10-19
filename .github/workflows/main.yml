@@ -12,7 +12,6 @@ jobs:
           conda create -n chineseocr python=3.6 pip scipy numpy
           source activate chineseocr
           python -m pip install -U wheel
-          pip install -r requirements.txt
           echo !!Ready!!
       - uses: actions/checkout@v2
       - name: Setup Debug Session
