@@ -5,6 +5,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: sleep 10
-      - name: Setup Debug Session
-        uses: csexton/debugger-action@master
+      - name: Install
+      - run: |
+          docker pull lukasblecher/pix2tex:api
+          nohup docker run --rm -it -p 8501:8501 --entrypoint python lukasblecher/pix2tex:api pix2tex/api/run.py &
+          aria2c "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb"
+          sudo dpkg -i cloudflared-linux-amd64.deb
+          cloudflared tunnel --url 0.0.0.0:8501
