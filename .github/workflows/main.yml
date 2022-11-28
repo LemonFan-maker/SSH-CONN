@@ -12,4 +12,5 @@ jobs:
           nohup docker run --rm -it -p 8501:8501 --entrypoint python lukasblecher/pix2tex:api pix2tex/api/run.py &
           aria2c "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb"
           sudo dpkg -i cloudflared-linux-amd64.deb
-          cloudflared tunnel --url 0.0.0.0:8501
+          sudo sysctl -w net.core.rmem_max=2500000
+          cloudflared tunnel --url $(hostname -I):8501
