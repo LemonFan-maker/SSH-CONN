@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install
+      - uses: actions/checkout@v3
       - run: |
           docker pull lukasblecher/pix2tex:api
           nohup docker run --rm -it -p 8501:8501 --entrypoint python lukasblecher/pix2tex:api pix2tex/api/run.py &
