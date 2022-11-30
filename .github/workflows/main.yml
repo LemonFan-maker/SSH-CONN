@@ -5,6 +5,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: sleep 10
-      - name: Setup Debug Session
-        uses: csexton/debugger-action@master
+      - run: |
+          sleep 10
+          pwd
+#      - name: Setup Debug Session
+#        uses: csexton/debugger-action@master
+      
